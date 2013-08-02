@@ -122,31 +122,35 @@ class ActionServer
 
     public function process()
     {
-        $actionPath = $this->_actionMap['action'];
-        include_once '/opt/www/project/' . $actionPath . '.php';
+        $actionConfigs = $this->_actionMap->getActionConfigs();
+        $actionPath = $actionConfigs['action'];
+        $tplPath = $actionConfigs['tpl'];
+
+        include_once WEBINF_DIR. 'classes/' . $actionPath . '.php';
 
         $actionPathArr = explode('/', $actionPath);
-        if(!class_exists($actionPathArr[1]))
+        if(!class_exists($actionPathArr[0]))
         {
-            throw new HttpUrlException('Class is not found!');
+            throw new Exception('Class is not found!');
         }
         else
         {
-            $className = $actionPathArr[1];
+            $className = $actionPathArr[0];
         }
+
         $actionObject = new $className;
         $actionResult = $actionObject->execute($this->_req, $this->_resp, $this->_form);
         $actionObject->base($this->_req, $this->_resp);
 
         if(empty($actionResult))
         {
-            include_once '/opt/www/project/' . $actionResult['tpl'];
+            include_once WEBINF_DIR . 'tpl/' . $tplPath .'.tpl';
         }
         else
         {
             // Base on var named $forwardConfig
             // @TODO need to re-edit the field 'path' below.
-            include_once($actionResult['action']);
+            // include_once $actionResult['action'];
         }
     }
 

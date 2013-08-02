@@ -7,10 +7,15 @@
  * @time 下午6:02
  * @description mapping.php
  */
+$_CONFIG['cache_lifetime'] = 0;
+$_CONFIG['template_dir'] = WEBINF_DIR . 'html';
+$_CONFIG['smarttemplate_compiled'] = PROJ_ROOT . 'template_c';
+$_CONFIG['extension_dir'] = PROJ_ROOT . 'smarttemplate/smarttemplate_extensions';
+
 $mapping = array(
-    'path' => array(
-        'action' => '',
-        'html' => '',
-        'tpl' => '',
+    'test' => array(
+        'action' => 'TestAction', // Full path
+        'html' => 'test', // Full path
+        'tpl' => 'test', // Full path
     ),
 );

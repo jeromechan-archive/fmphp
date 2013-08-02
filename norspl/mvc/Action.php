@@ -9,7 +9,7 @@
  */ 
 class Action 
 {
-    protected function base(&$req, &$resp)
+    public function base(&$req, &$resp)
     {
         //@TODO 放置公共控制逻辑
     }
