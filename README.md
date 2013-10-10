@@ -1,5 +1,4 @@
 TOPIC: Head First PHP framework architecture
-- - -
 + Configuration
 <pre><code>
     \<VirtualHost *:80\>
