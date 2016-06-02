@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013 Tuniu Inc. All rights reserved.
+ * Copyright © 2013 JEROMECHAN. All rights reserved.
  * 
  * @author chenjinlong
  * @date 13-8-6
